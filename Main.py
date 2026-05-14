@@ -1,3 +1,6 @@
+"""This Program is a quiz on the New Zealand band, Alien Weaponry."""
+
+
 question = {1:"1. How many bass players have there been?",2:"2. Who is the bass player?",3:"3. What city did they come from?",
             4:"4. In what year did they win Rockquest?",5:"5. How many full legth studio albums do they have?",6:"6. What record label are they signed with?"}
 
@@ -8,11 +11,14 @@ answerlist = {1:"1. One   2. Two   3. Three",2:"1. Turanga Morgan Edmonds   2. W
 answers = {1:3,2:1,3:2,4:3,5:3,6:2}
 score = 0
 
-
+print()
+print("This is a quiz on the New Zealand band, Alien Weaponry.")
+print("Answer the questions by inputting the number beside your chosen answer")
+print()
 
 for value in question:
-    print(question[value])
-    print(answerlist[value])
+    print(question[value])                                     # This section gets the question and the list of questions from their respective 
+    print(answerlist[value])                                   # dictionaries, and prints them
 
     user_input = input()
 
@@ -23,14 +29,17 @@ for value in question:
             user_input = input()
     user_input = int(user_input)
 
-    if  user_input < 4 and user_input > 0:  
+
+    if  user_input < 4 and user_input > 0:                     # This is the section that runs for regular expected inputs
         if user_input == answers[value]:
             print('Answer correct')
             score = score + 1 
         else:
             print('you got it wrong')
-    else:
-        while user_input > 4 or user_input <= 0:                
+
+
+    else:                                                      # This part of the code handles inputs that are not assigned to answers and then non numerical inputs after that,
+        while user_input > 4 or user_input <= 0:               # it tells the user this and lets them input a valid answer.
             print("Please enter a valid number")
             user_input = input()
             while user_input.isnumeric() == False:                 
@@ -38,6 +47,19 @@ for value in question:
                 user_input = input()
             user_input = int(user_input)
 
-percentscore = score * (100 / len(question))
+        if user_input == answers[value]:                       # This part is a copy of the expected input section, checking f the user's answer is correct
+            print('Answer correct')                            # after making sure it's valid.
+            score = score + 1 
+        else:
+            print('you got it wrong')
 
+
+
+percentscore = score * (100 / len(question))                   # This final part calculates and tells the user their score, and sends the user a message accordingly 
 print(f'You got {percentscore}')
+if percentscore < 50:
+    print("you're trash")
+elif percentscore < 80:
+    print("Good Job")
+elif percentscore == 100:
+    print("Perfect Score")

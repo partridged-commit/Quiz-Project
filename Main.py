@@ -9,6 +9,7 @@ answers = {1:3,2:1,3:2,4:3,5:3,6:2}
 score = 0
 
 
+
 for value in question:
     print(question[value])
     print(answerlist[value])
@@ -31,12 +32,11 @@ for value in question:
     else:
         while user_input > 4 or user_input <= 0:                
             print("Please enter a valid number")
-            try:
-                user_input = int(input())
-            except:       
+            user_input = input()
+            while user_input.isnumeric() == False:                 
                 print("Please enter a number input")
                 user_input = input()
-                user_input = int(user_input)
+            user_input = int(user_input)
 
 percentscore = score * (100 / len(question))
 
